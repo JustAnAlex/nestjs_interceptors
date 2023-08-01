@@ -12,16 +12,16 @@ import {
   UsePipes,
 } from '@nestjs/common';
 import { AppService } from './app.service';
-import { ControllerInterceptor } from './interceptors/controller.interceptor';
-import { ControllerMethodInterceptor } from './interceptors/controller-method.interceptor';
-import { ControllerGuard } from './guards/controller.guard';
-import { ControllerMethodGuard } from './guards/controller-method.guard';
-import { ControllerPipe } from './pipes/controller.pipe';
-import { ControllerMethodPipe } from './pipes/controller-method.pipe';
-import { ControllerParameterPipe } from './pipes/controller-parameter.pipe';
 import { FastifyReply } from 'fastify';
-import { ControllerFilter } from './filters/controller.filter';
-import { ControllerMethodFilter } from './filters/controller-method.filter';
+import { ControllerFilter } from './common/filters/controller.filter';
+import { ControllerMethodFilter } from './common/filters/controller-method.filter';
+import { ControllerPipe } from './common/pipes/controller.pipe';
+import { ControllerGuard } from './common/guards/controller.guard';
+import { ControllerInterceptor } from './common/interceptors/controller.interceptor';
+import { ControllerParameterPipe } from './common/pipes/controller-parameter.pipe';
+import { ControllerMethodGuard } from './common/guards/controller-method.guard';
+import { ControllerMethodInterceptor } from './common/interceptors/controller-method.interceptor';
+import { ControllerMethodPipe } from './common/pipes/controller-method.pipe';
 
 @UseFilters(ControllerFilter)
 @UsePipes(new ControllerPipe())
@@ -63,9 +63,11 @@ export class AppController {
     console.log('headers', headers?.junk);
     console.log('--------------------');
 
+    // сам сравни эти два варианта
     // reply.header('JUNK', reply.getHeader('JUNK') ?? '' + ', RAW HEADER');
     // reply.send(this.appService.getHello());
 
+    // сам сравни эти два варианта
     return this.appService.getHello();
   }
 }

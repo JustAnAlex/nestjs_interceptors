@@ -1,3 +1,6 @@
+
+NESTJS + FASTIFY
+
 curl --location 'http://localhost:3000/api?junk=raw' \
 --header 'junk: raw' \
 --header 'Content-Type: application/json' \
