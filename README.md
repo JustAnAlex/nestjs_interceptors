@@ -33,16 +33,6 @@ filters
   - на метод контроллера
 
 
-
-
-
-
-внедрение зависимостей
-
-controller durable ?
-next.handle() pipe subscribe
-
-
 Последовательность срабатывания
 body raw, 
  - GUARD GLOBAL, 
